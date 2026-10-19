@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 每日简报</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="hero">
+    <div class="hero-inner">
+        <div class="brand">
+            <span class="brand-mark">AI</span>
+            <div>
+                <h1>每日 AI 简报</h1>
+                <p>按你的身份与关注方向，每天整理一份能快速读完的 AI 新闻。</p>
+            </div>
+        </div>
+        <span class="badge">本地运行</span>
+    </div>
+</header>
+
+<main class="page">
+    <div id="global-error" class="alert hidden" role="alert"></div>
+
+    <div class="layout">
+        <section class="panel profile-panel" aria-labelledby="profile-title">
+            <div class="panel-heading">
+                <div>
+                    <p class="eyebrow">PERSONALIZE</p>
+                    <h2 id="profile-title">身份与订阅偏好</h2>
+                </div>
+                <span class="save-state" id="save-state">正在载入</span>
+            </div>
+
+            <form id="profile-form">
+                <fieldset>
+                    <legend>你的身份</legend>
+                    <div class="field-grid two">
+                        <label class="field">
+                            <span>称呼 <em>*</em></span>
+                            <input id="displayName" type="text" maxlength="50" required
+                                   placeholder="例如：小林">
+                        </label>
+                        <label class="field">
+                            <span>身份 / 职业</span>
+                            <input id="role" type="text" maxlength="100"
+                                   placeholder="例如：后端开发实习生">
+                        </label>
+                    </div>
+                    <label class="field field-spaced">
+                        <span>邮箱</span>
+                        <input id="email" type="email" maxlength="200"
+                               placeholder="用于邮件推送（可选）">
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>关注什么</legend>
+                    <div class="field">
+                        <span class="field-label">话题</span>
+                        <div id="topics" class="chip-grid"></div>
+                    </div>
+                    <div class="field-grid two field-spaced">
+                        <label class="field">
+                            <span>必须包含的关键词</span>
+                            <input id="keywords" type="text"
+                                   placeholder="用逗号分隔，例如：Agent, 开源模型">
+                        </label>
+                        <label class="field">
+                            <span>不希望出现的关键词</span>
+                            <input id="excludeKeywords" type="text"
+                                   placeholder="例如：融资, 招聘">
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>从哪里读</legend>
+                    <div class="field">
+                        <span class="field-label">新闻源</span>
+                        <p class="hint">Agent 会优先从你选择的来源中筛选，可多选。</p>
+                        <div id="sources" class="source-grid"></div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>交付方式</legend>
+                    <div class="field-grid three">
+                        <label class="field">
+                            <span>每天最多几条</span>
+                            <input id="maxItems" type="number" min="1" max="20" step="1">
+                        </label>
+                        <label class="field">
+                            <span>推送时间</span>
+                            <input id="deliverTime" type="time">
+                        </label>
+                        <label class="field">
+                            <span>推送方式</span>
+                            <select id="pushChannel">
+                                <option value="INBOX">站内收件箱</option>
+                                <option value="EMAIL">邮件</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="field-grid three field-spaced">
+                        <label class="field">
+                            <span>摘要语言</span>
+                            <select id="language">
+                                <option value="zh">中文</option>
+                                <option value="en">English</option>
+                            </select>
+                        </label>
+                    </div>
+                    <p class="hint" id="email-hint">选择邮件推送时，邮箱必填。</p>
+                </fieldset>
+
+                <div class="form-actions">
+                    <button id="save-button" class="primary" type="submit">保存偏好</button>
+                    <span id="form-message" class="form-message" role="status"></span>
+                </div>
+            </form>
+        </section>
+
+        <aside class="side">
+            <section class="panel briefing-panel">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">TODAY</p>
+                        <h2>今日简报</h2>
+                    </div>
+                </div>
+                <div class="empty-state compact">
+                    <div class="empty-mark">AI</div>
+                    <p>简报生成与推送正在接入中</p>
+                    <span>当前版本先保存身份和订阅偏好，Agent 接入后会在这里展示今日简报。</span>
+                </div>
+            </section>
+
+            <section class="panel history-panel">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">ARCHIVE</p>
+                        <h2>历史简报</h2>
+                    </div>
+                </div>
+                <div class="empty-state">
+                    <p>还没有历史简报</p>
+                    <span>Agent 接入后，生成的简报会按日期保存在这里。</span>
+                </div>
+            </section>
+        </aside>
+    </div>
+</main>
+
+<script src="/app.js"></script>
+</body>
+</html>

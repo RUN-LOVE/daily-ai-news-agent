@@ -1,0 +1,66 @@
+[
+  {
+    "id": "jiqizhixin",
+    "name": "机器之心",
+    "url": "https://www.jiqizhixin.com/rss",
+    "type": "rss",
+    "language": "zh",
+    "focus": "AI 产业与研究"
+  },
+  {
+    "id": "qbitai",
+    "name": "量子位",
+    "url": "https://www.qbitai.com/feed",
+    "type": "rss",
+    "language": "zh",
+    "focus": "AI 产品与前沿动态"
+  },
+  {
+    "id": "openai-news",
+    "name": "OpenAI News",
+    "url": "https://openai.com/news/rss.xml",
+    "type": "rss",
+    "language": "en",
+    "focus": "大模型与官方发布"
+  },
+  {
+    "id": "google-ai",
+    "name": "Google AI Blog",
+    "url": "https://blog.google/technology/ai/rss/",
+    "type": "rss",
+    "language": "en",
+    "focus": "大模型与 AI 研究"
+  },
+  {
+    "id": "huggingface",
+    "name": "Hugging Face Blog",
+    "url": "https://huggingface.co/blog/feed.xml",
+    "type": "rss",
+    "language": "en",
+    "focus": "开源模型与工具"
+  },
+  {
+    "id": "techcrunch-ai",
+    "name": "TechCrunch AI",
+    "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+    "type": "rss",
+    "language": "en",
+    "focus": "AI 创业与行业"
+  },
+  {
+    "id": "hn-ai",
+    "name": "Hacker News AI",
+    "url": "https://hnrss.org/newest?q=AI",
+    "type": "rss",
+    "language": "en",
+    "focus": "开发者社区讨论"
+  },
+  {
+    "id": "arxiv-cs-ai",
+    "name": "arXiv cs.AI",
+    "url": "https://rss.arxiv.org/rss/cs.AI",
+    "type": "rss",
+    "language": "en",
+    "focus": "AI 论文"
+  }
+]

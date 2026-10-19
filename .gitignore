@@ -1,0 +1,29 @@
+# Secrets and local configuration
+.env
+.env.local
+
+# Build output
+target/
+
+# Runtime data
+data/
+logs/
+*.log
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Agent output
+workspace/reports/*
+!workspace/reports/.gitkeep
+
+# Internal planning material
+docs/开发方案.md
+
+# IDE / OS
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
