@@ -20,6 +20,7 @@ workspace/reports/*
 
 # Internal planning material
 docs/开发方案.md
+workspace/_pdf_text.txt
 
 # IDE / OS
 .idea/
