@@ -17,6 +17,7 @@ server:
 app:
   workspace: ${APP_WORKSPACE:workspace}
   db-path: ${APP_DB_PATH:data/news-agent.db}
+  scheduler-enabled: ${APP_SCHEDULER_ENABLED:true}
 
 llm:
   base-url: ${LLM_BASE_URL:}

@@ -126,14 +126,31 @@
             <section class="panel briefing-panel">
                 <div class="panel-heading">
                     <div>
-                        <p class="eyebrow">TODAY</p>
-                        <h2>今日简报</h2>
+                        <p class="eyebrow" id="briefing-eyebrow">TODAY</p>
+                        <h2 id="briefing-heading">今日简报</h2>
+                    </div>
+                    <div class="briefing-actions">
+                        <button id="back-button" class="text-button hidden" type="button">查看最新</button>
+                        <button id="run-button" class="primary compact" type="button">生成今日简报</button>
                     </div>
                 </div>
-                <div class="empty-state compact">
+
+                <div id="run-status" class="run-status hidden" role="status"></div>
+
+                <div id="briefing-view" class="briefing-view hidden">
+                    <div id="briefing-meta" class="briefing-meta"></div>
+                    <article id="briefing-content" class="briefing-content"></article>
+                    <details class="trace" id="trace">
+                        <summary id="trace-summary">Agent 执行轨迹</summary>
+                        <p class="trace-note">工具调用顺序由模型在运行时决定，不是固定流水线。</p>
+                        <div id="trace-list" class="trace-list"></div>
+                    </details>
+                </div>
+
+                <div id="briefing-empty" class="empty-state compact">
                     <div class="empty-mark">AI</div>
-                    <p>简报生成与推送正在接入中</p>
-                    <span>当前版本先保存身份和订阅偏好，Agent 接入后会在这里展示今日简报。</span>
+                    <p>今天还没有简报</p>
+                    <span>点击“生成今日简报”，Agent 会自行抓取新闻源、筛选内容并写入简报。首次生成可能需要一到两分钟。</span>
                 </div>
             </section>
 
@@ -144,9 +161,10 @@
                         <h2>历史简报</h2>
                     </div>
                 </div>
-                <div class="empty-state">
+                <div id="history-list" class="history-list"></div>
+                <div id="history-empty" class="empty-state">
                     <p>还没有历史简报</p>
-                    <span>Agent 接入后，生成的简报会按日期保存在这里。</span>
+                    <span>每天生成的简报会按日期保存在这里，点击可以回看。</span>
                 </div>
             </section>
         </aside>
