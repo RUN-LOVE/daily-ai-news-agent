@@ -16,7 +16,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest(properties = "app.db-path=target/test-data/profile-api.db")
+@SpringBootTest(properties = {
+        "app.db-path=target/test-data/profile-api.db",
+        "app.scheduler-enabled=false"
+})
 @AutoConfigureMockMvc
 class ProfileApiIntegrationTest {
 
@@ -54,7 +57,7 @@ class ProfileApiIntegrationTest {
                   "topics": ["大模型", "大模型", " AI Agent "],
                   "keywords": ["推理", " 开源 "],
                   "excludeKeywords": ["招聘"],
-                  "sources": ["jiqizhixin", "openai-news"],
+                  "sources": ["infoq", "openai-news"],
                   "language": "zh",
                   "maxItems": 6,
                   "deliverTime": "09:15",
@@ -76,7 +79,7 @@ class ProfileApiIntegrationTest {
                 .andExpect(jsonPath("$.displayName").value("李雷"))
                 .andExpect(jsonPath("$.role").value("算法工程师"))
                 .andExpect(jsonPath("$.email").value("lilei@example.com"))
-                .andExpect(jsonPath("$.sources", contains("jiqizhixin", "openai-news")))
+                .andExpect(jsonPath("$.sources", contains("infoq", "openai-news")))
                 .andExpect(jsonPath("$.updatedAt").isNotEmpty());
     }
 
@@ -103,7 +106,7 @@ class ProfileApiIntegrationTest {
                   "displayName": "李雷",
                   "email": "",
                   "topics": ["大模型"],
-                  "sources": ["jiqizhixin"],
+                  "sources": ["infoq"],
                   "pushChannel": "EMAIL"
                 }
                 """;
@@ -133,8 +136,8 @@ class ProfileApiIntegrationTest {
         mockMvc.perform(get("/api/sources"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(8)))
-                .andExpect(jsonPath("$[0].id").value("jiqizhixin"))
-                .andExpect(jsonPath("$[0].name").value("机器之心"))
+                .andExpect(jsonPath("$[0].id").value("infoq"))
+                .andExpect(jsonPath("$[0].name").value("InfoQ 中文"))
                 .andExpect(jsonPath("$[3].id").value("google-ai"));
     }
 }

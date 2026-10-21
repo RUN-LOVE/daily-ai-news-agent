@@ -1,11 +1,11 @@
 [
   {
-    "id": "jiqizhixin",
-    "name": "机器之心",
-    "url": "https://www.jiqizhixin.com/rss",
+    "id": "infoq",
+    "name": "InfoQ 中文",
+    "url": "https://www.infoq.cn/feed",
     "type": "rss",
     "language": "zh",
-    "focus": "AI 产业与研究"
+    "focus": "软件开发与 AI 工程"
   },
   {
     "id": "qbitai",

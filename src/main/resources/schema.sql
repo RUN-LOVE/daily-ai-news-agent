@@ -13,3 +13,15 @@ CREATE TABLE IF NOT EXISTS profile (
     push_channel          TEXT NOT NULL DEFAULT 'INBOX',
     updated_at            TEXT NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS briefing (
+    id            INTEGER PRIMARY KEY AUTOINCREMENT,
+    briefing_date TEXT NOT NULL UNIQUE,
+    title         TEXT NOT NULL,
+    content       TEXT NOT NULL,
+    file_path     TEXT NOT NULL DEFAULT '',
+    steps_json    TEXT NOT NULL DEFAULT '[]',
+    llm_calls     INTEGER NOT NULL DEFAULT 0,
+    stop_reason   TEXT NOT NULL DEFAULT 'COMPLETED',
+    created_at    TEXT NOT NULL
+);

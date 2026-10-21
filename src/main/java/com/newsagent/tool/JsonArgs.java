@@ -30,4 +30,19 @@ public final class JsonArgs {
         }
         return node.asText();
     }
+
+    public static int optionalInt(JsonNode arguments, String field, int fallback, int min, int max) {
+        JsonNode node = arguments.get(field);
+        if (node == null) {
+            return fallback;
+        }
+        if (!node.isInt()) {
+            throw new ToolException("参数 " + field + " 必须是整数");
+        }
+        int value = node.asInt();
+        if (value < min || value > max) {
+            throw new ToolException("参数 " + field + " 必须在 " + min + " 到 " + max + " 之间");
+        }
+        return value;
+    }
 }
