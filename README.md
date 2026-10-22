@@ -13,8 +13,11 @@
 
 ```bash
 # 1. 配置 LLM（OpenAI 兼容接口）
+# macOS / Linux:
 cp .env.example .env
-# 编辑 .env，至少填写 LLM_BASE_URL、LLM_API_KEY、LLM_MODEL
+# Windows:
+copy .env.example .env
+# 然后编辑 .env，至少填写 LLM_BASE_URL、LLM_API_KEY、LLM_MODEL
 
 # 2. 启动服务
 mvn spring-boot:run
